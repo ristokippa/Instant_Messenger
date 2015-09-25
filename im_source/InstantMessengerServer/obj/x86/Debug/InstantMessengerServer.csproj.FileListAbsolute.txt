@@ -1,0 +1,7 @@
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\bin\Debug\server.pfx
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\bin\Debug\tools\generate_cert.bat
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\bin\Debug\InstantMessengerServer.exe
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\bin\Debug\InstantMessengerServer.pdb
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\obj\x86\Debug\InstantMessengerServer.csprojResolveAssemblyReference.cache
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\obj\x86\Debug\InstantMessengerServer.exe
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\im_source\InstantMessengerServer\obj\x86\Debug\InstantMessengerServer.pdb

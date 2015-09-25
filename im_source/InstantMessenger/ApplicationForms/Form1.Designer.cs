@@ -34,6 +34,7 @@
             this.registerButton = new System.Windows.Forms.ToolStripMenuItem();
             this.loginButton = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.UsersOnlineButton = new System.Windows.Forms.ToolStripMenuItem();
             this.sendTo = new System.Windows.Forms.TextBox();
             this.talkButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,7 +64,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerButton,
             this.loginButton,
-            this.logoutButton});
+            this.logoutButton,
+            this.UsersOnlineButton});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(434, 24);
@@ -91,6 +93,14 @@
             this.logoutButton.Size = new System.Drawing.Size(57, 20);
             this.logoutButton.Text = "Logout";
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // UsersOnlineButton
+            // 
+            this.UsersOnlineButton.Enabled = false;
+            this.UsersOnlineButton.Name = "UsersOnlineButton";
+            this.UsersOnlineButton.Size = new System.Drawing.Size(83, 20);
+            this.UsersOnlineButton.Text = "Users online";
+            this.UsersOnlineButton.Click += new System.EventHandler(this.UsersOnlineButton_Click);
             // 
             // sendTo
             // 
@@ -135,6 +145,7 @@
             this.Name = "Form1";
             this.Text = "My Instant Messenger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -155,6 +166,7 @@
         private System.Windows.Forms.TextBox sendTo;
         private System.Windows.Forms.Button talkButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem UsersOnlineButton;
 
 
     }

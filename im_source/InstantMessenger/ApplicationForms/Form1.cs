@@ -54,6 +54,7 @@ namespace InstantMessenger
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
                 talkButton.Enabled = true;
+                UsersOnlineButton.Enabled = true;
             }));
         }
         void im_RegisterOK(object sender, EventArgs e)
@@ -65,6 +66,7 @@ namespace InstantMessenger
                 loginButton.Enabled = false;
                 logoutButton.Enabled = true;
                 talkButton.Enabled = true;
+                UsersOnlineButton.Enabled = true;
             }));
         }
         void im_LoginFailed(object sender, IMErrorEventArgs e)
@@ -90,6 +92,7 @@ namespace InstantMessenger
                 loginButton.Enabled = true;
                 logoutButton.Enabled = false;
                 talkButton.Enabled = false;
+                UsersOnlineButton.Enabled = false;
 
                 foreach (TalkForm tf in talks)
                     tf.Close();
@@ -113,6 +116,17 @@ namespace InstantMessenger
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             im.Disconnect();
+        }
+
+        private void UsersOnlineButton_Click(object sender, EventArgs e)
+        {
+            Form usersOnlineForm = new UsersOnline();
+            usersOnlineForm.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

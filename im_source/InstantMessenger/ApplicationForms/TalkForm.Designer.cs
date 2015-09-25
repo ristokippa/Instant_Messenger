@@ -45,8 +45,7 @@
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 38);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -58,8 +57,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.sendText);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(584, 562);
-            this.splitContainer1.SplitterDistance = 433;
+            this.splitContainer1.Size = new System.Drawing.Size(436, 523);
+            this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
             // 
             // talkText
@@ -71,7 +70,7 @@
             this.talkText.Name = "talkText";
             this.talkText.ReadOnly = true;
             this.talkText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.talkText.Size = new System.Drawing.Size(580, 429);
+            this.talkText.Size = new System.Drawing.Size(432, 398);
             this.talkText.TabIndex = 2;
             // 
             // sendText
@@ -82,7 +81,7 @@
             this.sendText.Multiline = true;
             this.sendText.Name = "sendText";
             this.sendText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.sendText.Size = new System.Drawing.Size(580, 97);
+            this.sendText.Size = new System.Drawing.Size(432, 89);
             this.sendText.TabIndex = 1;
             // 
             // menuStrip1
@@ -90,9 +89,9 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sendButton});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 97);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 89);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(580, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(432, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 562);
+            this.ClientSize = new System.Drawing.Size(622, 562);
             this.Controls.Add(this.splitContainer1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TalkForm";
