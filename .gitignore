@@ -4,3 +4,4 @@
 *.suo
 *.csproj
 *.cache
+*.manifest
