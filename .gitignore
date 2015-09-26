@@ -3,3 +3,5 @@
 *.exe
 *.suo
 *.csproj
+Application_Development\bin
+Application_Development\obj
