@@ -13,6 +13,7 @@ namespace Application_Development
     public partial class Form1 : Form
     {
         EmailSendClass emailSend = new EmailSendClass();
+        LogInClass logIn = new LogInClass();
   
         public Form1()
         {
@@ -37,6 +38,30 @@ namespace Application_Development
         private void SendEmailButton_Click(object sender, EventArgs e)
         {
             emailSend.SendEmail();
+        }
+
+        private void UserNametextBox_TextChanged(object sender, EventArgs e)
+        {
+            logIn.UserName = UserNametextBox.Text;
+        }
+
+        private void PassCodetextBox_TextChanged(object sender, EventArgs e)
+        {
+            logIn.PassCode = PassCodetextBox.Text;
+        }
+
+        private void LogInbutton_Click(object sender, EventArgs e)
+        {
+            bool isValidated = logIn.ValidateUser();
+            if (isValidated)
+            {
+                FirstPagePanel.Visible = false;
+                EmailSendingPanel.Visible = true;
+            }
+            else
+            {
+
+            }
         }
     }
 }
