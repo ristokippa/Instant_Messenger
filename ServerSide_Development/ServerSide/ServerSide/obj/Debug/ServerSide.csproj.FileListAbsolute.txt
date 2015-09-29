@@ -1,0 +1,9 @@
+c:\users\david\desktop\ServerSide\ServerSide\bin\Debug\ServerSide.exe.config
+c:\users\david\desktop\ServerSide\ServerSide\bin\Debug\ServerSide.exe
+c:\users\david\desktop\ServerSide\ServerSide\bin\Debug\ServerSide.pdb
+c:\users\david\desktop\ServerSide\ServerSide\obj\Debug\ServerSide.csprojResolveAssemblyReference.cache
+c:\users\david\desktop\ServerSide\ServerSide\obj\Debug\ServerSide.exe
+c:\users\david\desktop\ServerSide\ServerSide\obj\Debug\ServerSide.pdb
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\ServerSide_Development\ServerSide\ServerSide\bin\Debug\ServerSide.exe.config
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\ServerSide_Development\ServerSide\ServerSide\obj\Debug\ServerSide.exe
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\ServerSide_Development\ServerSide\ServerSide\obj\Debug\ServerSide.pdb
