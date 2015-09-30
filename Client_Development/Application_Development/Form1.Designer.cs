@@ -40,18 +40,23 @@
             this.UserNametextBox = new System.Windows.Forms.TextBox();
             this.EmailSendingPanel = new System.Windows.Forms.Panel();
             this.ChatPanel = new System.Windows.Forms.Panel();
-            this.FromServerTextBox = new System.Windows.Forms.TextBox();
-            this.ToServerTextBox = new System.Windows.Forms.TextBox();
-            this.FromServerLabel = new System.Windows.Forms.Label();
-            this.ToServerLabel = new System.Windows.Forms.Label();
+            this.ConnectToServerButton = new System.Windows.Forms.Button();
+            this.SocketTextBox = new System.Windows.Forms.TextBox();
+            this.IPAddressTextBox = new System.Windows.Forms.TextBox();
             this.SendToServerButton = new System.Windows.Forms.Button();
+            this.ToServerLabel = new System.Windows.Forms.Label();
+            this.FromServerLabel = new System.Windows.Forms.Label();
+            this.ToServerTextBox = new System.Windows.Forms.TextBox();
+            this.FromServerTextBox = new System.Windows.Forms.TextBox();
             this.ControlsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.IPAddressTextBox = new System.Windows.Forms.TextBox();
-            this.SocketTextBox = new System.Windows.Forms.TextBox();
-            this.ConnectToServerButton = new System.Windows.Forms.Button();
+            this.databaseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realtimeGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DatabaseAppPanel = new System.Windows.Forms.Panel();
+            this.RealTimeGraphPanel = new System.Windows.Forms.Panel();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FirstPagePanel.SuspendLayout();
             this.EmailSendingPanel.SuspendLayout();
             this.ChatPanel.SuspendLayout();
@@ -178,33 +183,39 @@
             this.ChatPanel.Name = "ChatPanel";
             this.ChatPanel.Size = new System.Drawing.Size(772, 471);
             this.ChatPanel.TabIndex = 6;
+            this.ChatPanel.Visible = false;
             // 
-            // FromServerTextBox
+            // ConnectToServerButton
             // 
-            this.FromServerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FromServerTextBox.Location = new System.Drawing.Point(51, 105);
-            this.FromServerTextBox.Multiline = true;
-            this.FromServerTextBox.Name = "FromServerTextBox";
-            this.FromServerTextBox.Size = new System.Drawing.Size(303, 318);
-            this.FromServerTextBox.TabIndex = 0;
+            this.ConnectToServerButton.Location = new System.Drawing.Point(290, 23);
+            this.ConnectToServerButton.Name = "ConnectToServerButton";
+            this.ConnectToServerButton.Size = new System.Drawing.Size(123, 23);
+            this.ConnectToServerButton.TabIndex = 7;
+            this.ConnectToServerButton.Text = "Connect To Server";
+            this.ConnectToServerButton.UseVisualStyleBackColor = true;
             // 
-            // ToServerTextBox
+            // SocketTextBox
             // 
-            this.ToServerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToServerTextBox.Location = new System.Drawing.Point(381, 105);
-            this.ToServerTextBox.Multiline = true;
-            this.ToServerTextBox.Name = "ToServerTextBox";
-            this.ToServerTextBox.Size = new System.Drawing.Size(303, 318);
-            this.ToServerTextBox.TabIndex = 1;
+            this.SocketTextBox.Location = new System.Drawing.Point(54, 49);
+            this.SocketTextBox.Name = "SocketTextBox";
+            this.SocketTextBox.Size = new System.Drawing.Size(219, 20);
+            this.SocketTextBox.TabIndex = 6;
             // 
-            // FromServerLabel
+            // IPAddressTextBox
             // 
-            this.FromServerLabel.AutoSize = true;
-            this.FromServerLabel.Location = new System.Drawing.Point(51, 86);
-            this.FromServerLabel.Name = "FromServerLabel";
-            this.FromServerLabel.Size = new System.Drawing.Size(67, 13);
-            this.FromServerLabel.TabIndex = 2;
-            this.FromServerLabel.Text = "From Server:";
+            this.IPAddressTextBox.Location = new System.Drawing.Point(54, 23);
+            this.IPAddressTextBox.Name = "IPAddressTextBox";
+            this.IPAddressTextBox.Size = new System.Drawing.Size(219, 20);
+            this.IPAddressTextBox.TabIndex = 5;
+            // 
+            // SendToServerButton
+            // 
+            this.SendToServerButton.Location = new System.Drawing.Point(492, 429);
+            this.SendToServerButton.Name = "SendToServerButton";
+            this.SendToServerButton.Size = new System.Drawing.Size(75, 23);
+            this.SendToServerButton.TabIndex = 4;
+            this.SendToServerButton.Text = "Send";
+            this.SendToServerButton.UseVisualStyleBackColor = true;
             // 
             // ToServerLabel
             // 
@@ -215,14 +226,32 @@
             this.ToServerLabel.TabIndex = 3;
             this.ToServerLabel.Text = "To Server:";
             // 
-            // SendToServerButton
+            // FromServerLabel
             // 
-            this.SendToServerButton.Location = new System.Drawing.Point(492, 429);
-            this.SendToServerButton.Name = "SendToServerButton";
-            this.SendToServerButton.Size = new System.Drawing.Size(75, 23);
-            this.SendToServerButton.TabIndex = 4;
-            this.SendToServerButton.Text = "Send";
-            this.SendToServerButton.UseVisualStyleBackColor = true;
+            this.FromServerLabel.AutoSize = true;
+            this.FromServerLabel.Location = new System.Drawing.Point(51, 86);
+            this.FromServerLabel.Name = "FromServerLabel";
+            this.FromServerLabel.Size = new System.Drawing.Size(67, 13);
+            this.FromServerLabel.TabIndex = 2;
+            this.FromServerLabel.Text = "From Server:";
+            // 
+            // ToServerTextBox
+            // 
+            this.ToServerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToServerTextBox.Location = new System.Drawing.Point(381, 105);
+            this.ToServerTextBox.Multiline = true;
+            this.ToServerTextBox.Name = "ToServerTextBox";
+            this.ToServerTextBox.Size = new System.Drawing.Size(303, 318);
+            this.ToServerTextBox.TabIndex = 1;
+            // 
+            // FromServerTextBox
+            // 
+            this.FromServerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FromServerTextBox.Location = new System.Drawing.Point(51, 105);
+            this.FromServerTextBox.Multiline = true;
+            this.FromServerTextBox.Name = "FromServerTextBox";
+            this.FromServerTextBox.Size = new System.Drawing.Size(303, 318);
+            this.FromServerTextBox.TabIndex = 0;
             // 
             // ControlsMenuStrip
             // 
@@ -238,7 +267,10 @@
             // 
             this.controlsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailToolStripMenuItem,
-            this.chatToolStripMenuItem});
+            this.chatToolStripMenuItem,
+            this.databaseAppToolStripMenuItem,
+            this.realtimeGraphsToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
             this.controlsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.controlsToolStripMenuItem.Text = "Controls";
@@ -246,45 +278,63 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.emailToolStripMenuItem.Text = "Email";
             this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
             // 
             // chatToolStripMenuItem
             // 
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
-            this.chatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chatToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.chatToolStripMenuItem.Text = "Chat";
             this.chatToolStripMenuItem.Click += new System.EventHandler(this.chatToolStripMenuItem_Click);
             // 
-            // IPAddressTextBox
+            // databaseAppToolStripMenuItem
             // 
-            this.IPAddressTextBox.Location = new System.Drawing.Point(54, 23);
-            this.IPAddressTextBox.Name = "IPAddressTextBox";
-            this.IPAddressTextBox.Size = new System.Drawing.Size(219, 20);
-            this.IPAddressTextBox.TabIndex = 5;
+            this.databaseAppToolStripMenuItem.Name = "databaseAppToolStripMenuItem";
+            this.databaseAppToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.databaseAppToolStripMenuItem.Text = "Database application";
+            this.databaseAppToolStripMenuItem.Click += new System.EventHandler(this.databaseAppToolStripMenuItem_Click);
             // 
-            // SocketTextBox
+            // realtimeGraphsToolStripMenuItem
             // 
-            this.SocketTextBox.Location = new System.Drawing.Point(54, 49);
-            this.SocketTextBox.Name = "SocketTextBox";
-            this.SocketTextBox.Size = new System.Drawing.Size(219, 20);
-            this.SocketTextBox.TabIndex = 6;
+            this.realtimeGraphsToolStripMenuItem.Name = "realtimeGraphsToolStripMenuItem";
+            this.realtimeGraphsToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.realtimeGraphsToolStripMenuItem.Text = "Realtime graphs";
+            this.realtimeGraphsToolStripMenuItem.Click += new System.EventHandler(this.realtimeGraphsToolStripMenuItem_Click);
             // 
-            // ConnectToServerButton
+            // DatabaseAppPanel
             // 
-            this.ConnectToServerButton.Location = new System.Drawing.Point(290, 23);
-            this.ConnectToServerButton.Name = "ConnectToServerButton";
-            this.ConnectToServerButton.Size = new System.Drawing.Size(123, 23);
-            this.ConnectToServerButton.TabIndex = 7;
-            this.ConnectToServerButton.Text = "Connect To Server";
-            this.ConnectToServerButton.UseVisualStyleBackColor = true;
+            this.DatabaseAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatabaseAppPanel.Location = new System.Drawing.Point(0, 24);
+            this.DatabaseAppPanel.Name = "DatabaseAppPanel";
+            this.DatabaseAppPanel.Size = new System.Drawing.Size(772, 471);
+            this.DatabaseAppPanel.TabIndex = 6;
+            this.DatabaseAppPanel.Visible = false;
+            // 
+            // RealTimeGraphPanel
+            // 
+            this.RealTimeGraphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RealTimeGraphPanel.Location = new System.Drawing.Point(0, 24);
+            this.RealTimeGraphPanel.Name = "RealTimeGraphPanel";
+            this.RealTimeGraphPanel.Size = new System.Drawing.Size(772, 471);
+            this.RealTimeGraphPanel.TabIndex = 0;
+            this.RealTimeGraphPanel.Visible = false;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 495);
+            this.Controls.Add(this.RealTimeGraphPanel);
+            this.Controls.Add(this.DatabaseAppPanel);
             this.Controls.Add(this.FirstPagePanel);
             this.Controls.Add(this.ChatPanel);
             this.Controls.Add(this.ControlsMenuStrip);
@@ -332,6 +382,11 @@
         private System.Windows.Forms.TextBox SocketTextBox;
         private System.Windows.Forms.TextBox IPAddressTextBox;
         private System.Windows.Forms.Button ConnectToServerButton;
+        private System.Windows.Forms.ToolStripMenuItem databaseAppToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realtimeGraphsToolStripMenuItem;
+        private System.Windows.Forms.Panel DatabaseAppPanel;
+        private System.Windows.Forms.Panel RealTimeGraphPanel;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

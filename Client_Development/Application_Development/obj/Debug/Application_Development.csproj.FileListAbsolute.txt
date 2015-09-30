@@ -19,3 +19,9 @@ C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Application_Development\Ap
 C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\bin\Debug\Application_Development.exe.config
 C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.exe
 C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.pdb
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\bin\Debug\Application_Development.exe
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\bin\Debug\Application_Development.pdb
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.csprojResolveAssemblyReference.cache
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.Form1.resources
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.Properties.Resources.resources
+C:\Users\risto_000\Documents\GitHub\Instant_Messenger\Client_Development\Application_Development\obj\Debug\Application_Development.csproj.GenerateResource.Cache

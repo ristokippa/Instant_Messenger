@@ -87,6 +87,8 @@ namespace Application_Development
         {
             EmailSendingPanel.Visible = false;
             FirstPagePanel.Visible = false;
+            DatabaseAppPanel.Visible = false;
+            RealTimeGraphPanel.Visible = false;
             ChatPanel.Visible = true;
         }
 
@@ -94,7 +96,43 @@ namespace Application_Development
         {
             FirstPagePanel.Visible = false;
             ChatPanel.Visible = false;
+            DatabaseAppPanel.Visible = false;
+            RealTimeGraphPanel.Visible = false;
             EmailSendingPanel.Visible = true;
+        }
+
+        private void databaseAppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FirstPagePanel.Visible = false;
+            ChatPanel.Visible = false;
+            EmailSendingPanel.Visible = false;
+            RealTimeGraphPanel.Visible = false;
+            DatabaseAppPanel.Visible = true;
+        }
+
+        private void realtimeGraphsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FirstPagePanel.Visible = false;
+            ChatPanel.Visible = false;
+            EmailSendingPanel.Visible = false;
+            DatabaseAppPanel.Visible = false;
+            RealTimeGraphPanel.Visible = true;
+        }
+
+        // Go back to first page
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Size = new System.Drawing.Size(300, 250);
+            this.MinimumSize = new System.Drawing.Size(300, 250);
+            this.MaximumSize = new System.Drawing.Size(300, 250);
+            UserNametextBox.Text = ""; // Clear the username
+            PassCodetextBox.Text = ""; // Clear the passcode
+            ChatPanel.Visible = false;
+            EmailSendingPanel.Visible = false;
+            DatabaseAppPanel.Visible = false;
+            RealTimeGraphPanel.Visible = false;
+            FirstPagePanel.Visible = true;
+            ControlsMenuStrip.Visible = false; // Hide the controls from user
         }
     }
 }
