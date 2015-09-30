@@ -54,9 +54,12 @@
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realtimeGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseAppPanel = new System.Windows.Forms.Panel();
             this.RealTimeGraphPanel = new System.Windows.Forms.Panel();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MachineIPAddressComboBox = new System.Windows.Forms.ComboBox();
+            this.MachineIPAddressesLabel = new System.Windows.Forms.Label();
+            this.GetIPButton = new System.Windows.Forms.Button();
             this.FirstPagePanel.SuspendLayout();
             this.EmailSendingPanel.SuspendLayout();
             this.ChatPanel.SuspendLayout();
@@ -170,6 +173,9 @@
             // 
             // ChatPanel
             // 
+            this.ChatPanel.Controls.Add(this.GetIPButton);
+            this.ChatPanel.Controls.Add(this.MachineIPAddressesLabel);
+            this.ChatPanel.Controls.Add(this.MachineIPAddressComboBox);
             this.ChatPanel.Controls.Add(this.ConnectToServerButton);
             this.ChatPanel.Controls.Add(this.SocketTextBox);
             this.ChatPanel.Controls.Add(this.IPAddressTextBox);
@@ -303,6 +309,13 @@
             this.realtimeGraphsToolStripMenuItem.Text = "Realtime graphs";
             this.realtimeGraphsToolStripMenuItem.Click += new System.EventHandler(this.realtimeGraphsToolStripMenuItem_Click);
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // DatabaseAppPanel
             // 
             this.DatabaseAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -321,22 +334,42 @@
             this.RealTimeGraphPanel.TabIndex = 0;
             this.RealTimeGraphPanel.Visible = false;
             // 
-            // logoutToolStripMenuItem
+            // MachineIPAddressComboBox
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.MachineIPAddressComboBox.FormattingEnabled = true;
+            this.MachineIPAddressComboBox.Location = new System.Drawing.Point(437, 25);
+            this.MachineIPAddressComboBox.Name = "MachineIPAddressComboBox";
+            this.MachineIPAddressComboBox.Size = new System.Drawing.Size(235, 21);
+            this.MachineIPAddressComboBox.TabIndex = 8;
+            // 
+            // MachineIPAddressesLabel
+            // 
+            this.MachineIPAddressesLabel.AutoSize = true;
+            this.MachineIPAddressesLabel.Location = new System.Drawing.Point(434, 9);
+            this.MachineIPAddressesLabel.Name = "MachineIPAddressesLabel";
+            this.MachineIPAddressesLabel.Size = new System.Drawing.Size(115, 13);
+            this.MachineIPAddressesLabel.TabIndex = 9;
+            this.MachineIPAddressesLabel.Text = "Machine IP addresses:";
+            // 
+            // GetIPButton
+            // 
+            this.GetIPButton.Location = new System.Drawing.Point(679, 23);
+            this.GetIPButton.Name = "GetIPButton";
+            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
+            this.GetIPButton.TabIndex = 10;
+            this.GetIPButton.Text = "Get IP";
+            this.GetIPButton.UseVisualStyleBackColor = true;
+            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 495);
+            this.Controls.Add(this.ChatPanel);
             this.Controls.Add(this.RealTimeGraphPanel);
             this.Controls.Add(this.DatabaseAppPanel);
             this.Controls.Add(this.FirstPagePanel);
-            this.Controls.Add(this.ChatPanel);
             this.Controls.Add(this.ControlsMenuStrip);
             this.Controls.Add(this.EmailSendingPanel);
             this.MainMenuStrip = this.ControlsMenuStrip;
@@ -387,6 +420,9 @@
         private System.Windows.Forms.Panel DatabaseAppPanel;
         private System.Windows.Forms.Panel RealTimeGraphPanel;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.Button GetIPButton;
+        private System.Windows.Forms.Label MachineIPAddressesLabel;
+        private System.Windows.Forms.ComboBox MachineIPAddressComboBox;
     }
 }
 

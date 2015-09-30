@@ -14,7 +14,8 @@ namespace Application_Development
     {
         EmailSendClass emailSend = new EmailSendClass();
         LogInClass logIn = new LogInClass();
-  
+        Classes.ChatClass chatInstance = new Classes.ChatClass();
+
         public Form1()
         {
             InitializeComponent();
@@ -62,9 +63,9 @@ namespace Application_Development
             if (isValidated)
             {
                 ControlsMenuStrip.Visible = true;
-                this.Size = new System.Drawing.Size(750, 550);
-                this.MinimumSize = new System.Drawing.Size(750, 550);
-                this.MaximumSize = new System.Drawing.Size(750, 550);
+                this.Size = new System.Drawing.Size(800, 550);
+                this.MinimumSize = new System.Drawing.Size(800, 550);
+                this.MaximumSize = new System.Drawing.Size(800, 550);
                 FirstPagePanel.Visible = false;
                 EmailSendingPanel.Visible = true;
             }
@@ -73,7 +74,7 @@ namespace Application_Development
                 // TBD....
             }
 
-            if(isValidated)
+            if (isValidated)
             {
 
             }
@@ -134,5 +135,12 @@ namespace Application_Development
             FirstPagePanel.Visible = true;
             ControlsMenuStrip.Visible = false; // Hide the controls from user
         }
-    }
+
+        private void GetIPButton_Click(object sender, EventArgs e)
+        {
+            chatInstance.GetMachineIP();
+            MachineIPAddressComboBox.Items.Add(Classes.GlobalsSecond.IPAddress[0]);
+            MachineIPAddressComboBox.Items.Add(Classes.GlobalsSecond.IPAddress[1]);
+        }
+    }  
 }

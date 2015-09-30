@@ -16,13 +16,13 @@ namespace Application_Development
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           /*System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
+            System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
 
             // 192.168.43.254/183
-            System.Net.IPAddress address = System.Net.IPAddress.Parse("192.168.43.183");
+            //System.Net.IPAddress address = System.Net.IPAddress.Parse("");
 
-            System.Net.IPAddress ipAddress = System.Net.IPAddress.Parse("192.168.43.183");
-            System.Net.IPEndPoint ipEndPoint = new System.Net.IPEndPoint(ipAddress, 8888);
+            /*System.Net.IPAddress ipAddress = System.Net.IPAddress.Parse("217.71.44.163");
+            System.Net.IPEndPoint ipEndPoint = new System.Net.IPEndPoint(ipAddress, 10000);
             clientSocket.Connect(ipEndPoint);*/
             Application.Run(new Form1());
 
