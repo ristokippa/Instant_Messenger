@@ -24,5 +24,10 @@ namespace Application_Development.Classes
             GlobalsSecond.IPAddress[0] = ExternalIP;
             GlobalsSecond.IPAddress[1] = SecondIP;
         }
+
+        public void ConnectToServer()
+        {
+
+        }
     }
 }

@@ -40,6 +40,8 @@
             this.UserNametextBox = new System.Windows.Forms.TextBox();
             this.EmailSendingPanel = new System.Windows.Forms.Panel();
             this.ChatPanel = new System.Windows.Forms.Panel();
+            this.GetIPButton = new System.Windows.Forms.Button();
+            this.MachineIPAddressComboBox = new System.Windows.Forms.ComboBox();
             this.ConnectToServerButton = new System.Windows.Forms.Button();
             this.SocketTextBox = new System.Windows.Forms.TextBox();
             this.IPAddressTextBox = new System.Windows.Forms.TextBox();
@@ -57,13 +59,22 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseAppPanel = new System.Windows.Forms.Panel();
             this.RealTimeGraphPanel = new System.Windows.Forms.Panel();
-            this.MachineIPAddressComboBox = new System.Windows.Forms.ComboBox();
-            this.MachineIPAddressesLabel = new System.Windows.Forms.Label();
-            this.GetIPButton = new System.Windows.Forms.Button();
+            this.WebBrowserPanel = new System.Windows.Forms.Panel();
+            this.webBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BrowserSearchTextBox = new System.Windows.Forms.TextBox();
+            this.WebBrowserHomeButton = new System.Windows.Forms.Button();
+            this.WebBrowserBackButton = new System.Windows.Forms.Button();
+            this.WebBrowserForwardButton = new System.Windows.Forms.Button();
+            this.WebBrowserRefreshButton = new System.Windows.Forms.Button();
+            this.WebBrowserStopButton = new System.Windows.Forms.Button();
+            this.WebBrowserGoButton = new System.Windows.Forms.Button();
+            this.WebBrowserUsing = new System.Windows.Forms.WebBrowser();
             this.FirstPagePanel.SuspendLayout();
             this.EmailSendingPanel.SuspendLayout();
             this.ChatPanel.SuspendLayout();
             this.ControlsMenuStrip.SuspendLayout();
+            this.WebBrowserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EmailHeadTextBox
@@ -103,7 +114,7 @@
             this.FirstPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstPagePanel.Location = new System.Drawing.Point(0, 24);
             this.FirstPagePanel.Name = "FirstPagePanel";
-            this.FirstPagePanel.Size = new System.Drawing.Size(772, 471);
+            this.FirstPagePanel.Size = new System.Drawing.Size(975, 624);
             this.FirstPagePanel.TabIndex = 3;
             // 
             // PasscodeLabel
@@ -167,14 +178,13 @@
             this.EmailSendingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmailSendingPanel.Location = new System.Drawing.Point(0, 0);
             this.EmailSendingPanel.Name = "EmailSendingPanel";
-            this.EmailSendingPanel.Size = new System.Drawing.Size(772, 495);
+            this.EmailSendingPanel.Size = new System.Drawing.Size(975, 648);
             this.EmailSendingPanel.TabIndex = 3;
             this.EmailSendingPanel.Visible = false;
             // 
             // ChatPanel
             // 
             this.ChatPanel.Controls.Add(this.GetIPButton);
-            this.ChatPanel.Controls.Add(this.MachineIPAddressesLabel);
             this.ChatPanel.Controls.Add(this.MachineIPAddressComboBox);
             this.ChatPanel.Controls.Add(this.ConnectToServerButton);
             this.ChatPanel.Controls.Add(this.SocketTextBox);
@@ -187,9 +197,27 @@
             this.ChatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChatPanel.Location = new System.Drawing.Point(0, 24);
             this.ChatPanel.Name = "ChatPanel";
-            this.ChatPanel.Size = new System.Drawing.Size(772, 471);
+            this.ChatPanel.Size = new System.Drawing.Size(975, 624);
             this.ChatPanel.TabIndex = 6;
             this.ChatPanel.Visible = false;
+            // 
+            // GetIPButton
+            // 
+            this.GetIPButton.Location = new System.Drawing.Point(679, 23);
+            this.GetIPButton.Name = "GetIPButton";
+            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
+            this.GetIPButton.TabIndex = 10;
+            this.GetIPButton.Text = "Get IP";
+            this.GetIPButton.UseVisualStyleBackColor = true;
+            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
+            // 
+            // MachineIPAddressComboBox
+            // 
+            this.MachineIPAddressComboBox.FormattingEnabled = true;
+            this.MachineIPAddressComboBox.Location = new System.Drawing.Point(437, 25);
+            this.MachineIPAddressComboBox.Name = "MachineIPAddressComboBox";
+            this.MachineIPAddressComboBox.Size = new System.Drawing.Size(235, 21);
+            this.MachineIPAddressComboBox.TabIndex = 8;
             // 
             // ConnectToServerButton
             // 
@@ -206,6 +234,7 @@
             this.SocketTextBox.Name = "SocketTextBox";
             this.SocketTextBox.Size = new System.Drawing.Size(219, 20);
             this.SocketTextBox.TabIndex = 6;
+            this.SocketTextBox.TextChanged += new System.EventHandler(this.SocketTextBox_TextChanged);
             // 
             // IPAddressTextBox
             // 
@@ -213,6 +242,7 @@
             this.IPAddressTextBox.Name = "IPAddressTextBox";
             this.IPAddressTextBox.Size = new System.Drawing.Size(219, 20);
             this.IPAddressTextBox.TabIndex = 5;
+            this.IPAddressTextBox.TextChanged += new System.EventHandler(this.IPAddressTextBox_TextChanged);
             // 
             // SendToServerButton
             // 
@@ -265,7 +295,7 @@
             this.controlsToolStripMenuItem});
             this.ControlsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.ControlsMenuStrip.Name = "ControlsMenuStrip";
-            this.ControlsMenuStrip.Size = new System.Drawing.Size(772, 24);
+            this.ControlsMenuStrip.Size = new System.Drawing.Size(975, 24);
             this.ControlsMenuStrip.TabIndex = 6;
             this.ControlsMenuStrip.Text = "Controls";
             // 
@@ -274,9 +304,11 @@
             this.controlsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emailToolStripMenuItem,
             this.chatToolStripMenuItem,
+            this.webBrowserToolStripMenuItem,
             this.databaseAppToolStripMenuItem,
             this.realtimeGraphsToolStripMenuItem,
-            this.logoutToolStripMenuItem});
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
             this.controlsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.controlsToolStripMenuItem.Text = "Controls";
@@ -321,7 +353,7 @@
             this.DatabaseAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatabaseAppPanel.Location = new System.Drawing.Point(0, 24);
             this.DatabaseAppPanel.Name = "DatabaseAppPanel";
-            this.DatabaseAppPanel.Size = new System.Drawing.Size(772, 471);
+            this.DatabaseAppPanel.Size = new System.Drawing.Size(975, 624);
             this.DatabaseAppPanel.TabIndex = 6;
             this.DatabaseAppPanel.Visible = false;
             // 
@@ -330,42 +362,121 @@
             this.RealTimeGraphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RealTimeGraphPanel.Location = new System.Drawing.Point(0, 24);
             this.RealTimeGraphPanel.Name = "RealTimeGraphPanel";
-            this.RealTimeGraphPanel.Size = new System.Drawing.Size(772, 471);
+            this.RealTimeGraphPanel.Size = new System.Drawing.Size(975, 624);
             this.RealTimeGraphPanel.TabIndex = 0;
             this.RealTimeGraphPanel.Visible = false;
             // 
-            // MachineIPAddressComboBox
+            // WebBrowserPanel
             // 
-            this.MachineIPAddressComboBox.FormattingEnabled = true;
-            this.MachineIPAddressComboBox.Location = new System.Drawing.Point(437, 25);
-            this.MachineIPAddressComboBox.Name = "MachineIPAddressComboBox";
-            this.MachineIPAddressComboBox.Size = new System.Drawing.Size(235, 21);
-            this.MachineIPAddressComboBox.TabIndex = 8;
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserUsing);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserGoButton);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserStopButton);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserRefreshButton);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserForwardButton);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserBackButton);
+            this.WebBrowserPanel.Controls.Add(this.WebBrowserHomeButton);
+            this.WebBrowserPanel.Controls.Add(this.BrowserSearchTextBox);
+            this.WebBrowserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WebBrowserPanel.Location = new System.Drawing.Point(0, 24);
+            this.WebBrowserPanel.Name = "WebBrowserPanel";
+            this.WebBrowserPanel.Size = new System.Drawing.Size(975, 624);
+            this.WebBrowserPanel.TabIndex = 11;
+            this.WebBrowserPanel.Visible = false;
             // 
-            // MachineIPAddressesLabel
+            // webBrowserToolStripMenuItem
             // 
-            this.MachineIPAddressesLabel.AutoSize = true;
-            this.MachineIPAddressesLabel.Location = new System.Drawing.Point(434, 9);
-            this.MachineIPAddressesLabel.Name = "MachineIPAddressesLabel";
-            this.MachineIPAddressesLabel.Size = new System.Drawing.Size(115, 13);
-            this.MachineIPAddressesLabel.TabIndex = 9;
-            this.MachineIPAddressesLabel.Text = "Machine IP addresses:";
+            this.webBrowserToolStripMenuItem.Name = "webBrowserToolStripMenuItem";
+            this.webBrowserToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.webBrowserToolStripMenuItem.Text = "Web browser";
+            this.webBrowserToolStripMenuItem.Click += new System.EventHandler(this.webBrowserToolStripMenuItem_Click);
             // 
-            // GetIPButton
+            // exitToolStripMenuItem
             // 
-            this.GetIPButton.Location = new System.Drawing.Point(679, 23);
-            this.GetIPButton.Name = "GetIPButton";
-            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
-            this.GetIPButton.TabIndex = 10;
-            this.GetIPButton.Text = "Get IP";
-            this.GetIPButton.UseVisualStyleBackColor = true;
-            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // BrowserSearchTextBox
+            // 
+            this.BrowserSearchTextBox.Location = new System.Drawing.Point(13, 29);
+            this.BrowserSearchTextBox.Name = "BrowserSearchTextBox";
+            this.BrowserSearchTextBox.Size = new System.Drawing.Size(507, 20);
+            this.BrowserSearchTextBox.TabIndex = 0;
+            // 
+            // WebBrowserHomeButton
+            // 
+            this.WebBrowserHomeButton.Location = new System.Drawing.Point(12, 3);
+            this.WebBrowserHomeButton.Name = "WebBrowserHomeButton";
+            this.WebBrowserHomeButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserHomeButton.TabIndex = 1;
+            this.WebBrowserHomeButton.Text = "HOME";
+            this.WebBrowserHomeButton.UseVisualStyleBackColor = true;
+            this.WebBrowserHomeButton.Click += new System.EventHandler(this.WebBrowserHomeButton_Click);
+            // 
+            // WebBrowserBackButton
+            // 
+            this.WebBrowserBackButton.Location = new System.Drawing.Point(93, 3);
+            this.WebBrowserBackButton.Name = "WebBrowserBackButton";
+            this.WebBrowserBackButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserBackButton.TabIndex = 2;
+            this.WebBrowserBackButton.Text = "Back";
+            this.WebBrowserBackButton.UseVisualStyleBackColor = true;
+            this.WebBrowserBackButton.Click += new System.EventHandler(this.WebBrowserBackButton_Click);
+            // 
+            // WebBrowserForwardButton
+            // 
+            this.WebBrowserForwardButton.Location = new System.Drawing.Point(174, 3);
+            this.WebBrowserForwardButton.Name = "WebBrowserForwardButton";
+            this.WebBrowserForwardButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserForwardButton.TabIndex = 3;
+            this.WebBrowserForwardButton.Text = "Forward";
+            this.WebBrowserForwardButton.UseVisualStyleBackColor = true;
+            this.WebBrowserForwardButton.Click += new System.EventHandler(this.WebBrowserForwardButton_Click);
+            // 
+            // WebBrowserRefreshButton
+            // 
+            this.WebBrowserRefreshButton.Location = new System.Drawing.Point(255, 3);
+            this.WebBrowserRefreshButton.Name = "WebBrowserRefreshButton";
+            this.WebBrowserRefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserRefreshButton.TabIndex = 4;
+            this.WebBrowserRefreshButton.Text = "Refresh";
+            this.WebBrowserRefreshButton.UseVisualStyleBackColor = true;
+            this.WebBrowserRefreshButton.Click += new System.EventHandler(this.WebBrowserRefreshButton_Click);
+            // 
+            // WebBrowserStopButton
+            // 
+            this.WebBrowserStopButton.Location = new System.Drawing.Point(336, 3);
+            this.WebBrowserStopButton.Name = "WebBrowserStopButton";
+            this.WebBrowserStopButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserStopButton.TabIndex = 5;
+            this.WebBrowserStopButton.Text = "Stop";
+            this.WebBrowserStopButton.UseVisualStyleBackColor = true;
+            // 
+            // WebBrowserGoButton
+            // 
+            this.WebBrowserGoButton.Location = new System.Drawing.Point(417, 3);
+            this.WebBrowserGoButton.Name = "WebBrowserGoButton";
+            this.WebBrowserGoButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserGoButton.TabIndex = 6;
+            this.WebBrowserGoButton.Text = "Go";
+            this.WebBrowserGoButton.UseVisualStyleBackColor = true;
+            this.WebBrowserGoButton.Click += new System.EventHandler(this.WebBrowserGoButton_Click);
+            // 
+            // WebBrowserUsing
+            // 
+            this.WebBrowserUsing.Location = new System.Drawing.Point(12, 55);
+            this.WebBrowserUsing.MinimumSize = new System.Drawing.Size(20, 20);
+            this.WebBrowserUsing.Name = "WebBrowserUsing";
+            this.WebBrowserUsing.Size = new System.Drawing.Size(900, 533);
+            this.WebBrowserUsing.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 495);
+            this.ClientSize = new System.Drawing.Size(975, 648);
+            this.Controls.Add(this.WebBrowserPanel);
             this.Controls.Add(this.ChatPanel);
             this.Controls.Add(this.RealTimeGraphPanel);
             this.Controls.Add(this.DatabaseAppPanel);
@@ -384,6 +495,8 @@
             this.ChatPanel.PerformLayout();
             this.ControlsMenuStrip.ResumeLayout(false);
             this.ControlsMenuStrip.PerformLayout();
+            this.WebBrowserPanel.ResumeLayout(false);
+            this.WebBrowserPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,8 +534,18 @@
         private System.Windows.Forms.Panel RealTimeGraphPanel;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Button GetIPButton;
-        private System.Windows.Forms.Label MachineIPAddressesLabel;
         private System.Windows.Forms.ComboBox MachineIPAddressComboBox;
+        private System.Windows.Forms.Panel WebBrowserPanel;
+        private System.Windows.Forms.ToolStripMenuItem webBrowserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button WebBrowserGoButton;
+        private System.Windows.Forms.Button WebBrowserStopButton;
+        private System.Windows.Forms.Button WebBrowserRefreshButton;
+        private System.Windows.Forms.Button WebBrowserForwardButton;
+        private System.Windows.Forms.Button WebBrowserBackButton;
+        private System.Windows.Forms.Button WebBrowserHomeButton;
+        private System.Windows.Forms.TextBox BrowserSearchTextBox;
+        private System.Windows.Forms.WebBrowser WebBrowserUsing;
     }
 }
 

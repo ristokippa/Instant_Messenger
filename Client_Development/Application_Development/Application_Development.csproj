@@ -47,6 +47,7 @@
     <Compile Include="Classes\ChatClass.cs" />
     <Compile Include="Classes\EmailSendClass.cs" />
     <Compile Include="Classes\GlobalVariables.cs" />
+    <Compile Include="Classes\WebBrowserClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

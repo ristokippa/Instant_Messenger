@@ -15,7 +15,9 @@ namespace Application_Development
         EmailSendClass emailSend = new EmailSendClass();
         LogInClass logIn = new LogInClass();
         Classes.ChatClass chatInstance = new Classes.ChatClass();
-
+        private string ServerIPAddress = ""; // Value comes from Chat panel interface
+        private int ServerSocket = 0;        // Value comes from Chat panel interface
+            
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace Application_Development
             this.MaximumSize = new System.Drawing.Size(300, 250);
             IPAddressTextBox.Text = "IP Address";
             SocketTextBox.Text = "Socket";
+            MachineIPAddressComboBox.Text = "Machine IP addresses";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -63,9 +66,9 @@ namespace Application_Development
             if (isValidated)
             {
                 ControlsMenuStrip.Visible = true;
-                this.Size = new System.Drawing.Size(800, 550);
-                this.MinimumSize = new System.Drawing.Size(800, 550);
-                this.MaximumSize = new System.Drawing.Size(800, 550);
+                this.Size = new System.Drawing.Size(1000, 700);
+                this.MinimumSize = new System.Drawing.Size(1000, 700);
+                this.MaximumSize = new System.Drawing.Size(1000, 700);
                 FirstPagePanel.Visible = false;
                 EmailSendingPanel.Visible = true;
             }
@@ -90,6 +93,7 @@ namespace Application_Development
             FirstPagePanel.Visible = false;
             DatabaseAppPanel.Visible = false;
             RealTimeGraphPanel.Visible = false;
+            WebBrowserPanel.Visible = false;
             ChatPanel.Visible = true;
         }
 
@@ -99,6 +103,7 @@ namespace Application_Development
             ChatPanel.Visible = false;
             DatabaseAppPanel.Visible = false;
             RealTimeGraphPanel.Visible = false;
+            WebBrowserPanel.Visible = false;
             EmailSendingPanel.Visible = true;
         }
 
@@ -108,6 +113,7 @@ namespace Application_Development
             ChatPanel.Visible = false;
             EmailSendingPanel.Visible = false;
             RealTimeGraphPanel.Visible = false;
+            WebBrowserPanel.Visible = false;
             DatabaseAppPanel.Visible = true;
         }
 
@@ -117,6 +123,7 @@ namespace Application_Development
             ChatPanel.Visible = false;
             EmailSendingPanel.Visible = false;
             DatabaseAppPanel.Visible = false;
+            WebBrowserPanel.Visible = false;
             RealTimeGraphPanel.Visible = true;
         }
 
@@ -139,8 +146,78 @@ namespace Application_Development
         private void GetIPButton_Click(object sender, EventArgs e)
         {
             chatInstance.GetMachineIP();
+            MachineIPAddressComboBox.Items.Clear();
             MachineIPAddressComboBox.Items.Add(Classes.GlobalsSecond.IPAddress[0]);
             MachineIPAddressComboBox.Items.Add(Classes.GlobalsSecond.IPAddress[1]);
+        }
+
+        private void IPAddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ServerIPAddress = IPAddressTextBox.Text;
+        }
+
+        private void SocketTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string serverSocket = SocketTextBox.Text;
+            try
+            {
+                // Try and catch added in case conversion error happens. For example user gives "string" instead of number
+                ServerSocket = Convert.ToInt32(serverSocket);
+            }
+            catch
+            {
+                // Set to default port 10000
+                ServerSocket = 10000;
+            }
+        }
+
+        private void webBrowserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FirstPagePanel.Visible = false;
+            ChatPanel.Visible = false;
+            EmailSendingPanel.Visible = false;
+            DatabaseAppPanel.Visible = false;
+            RealTimeGraphPanel.Visible = false;
+            WebBrowserPanel.Visible = true;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(); // Clean up any resources being used
+        }
+
+        // Below is simple webbrowser usage inside the form
+        private void WebBrowserGoButton_Click(object sender, EventArgs e)
+        {
+            string WebPage = BrowserSearchTextBox.Text.Trim();
+            WebBrowserUsing.Navigate(WebPage);
+        }
+
+        private void WebBrowserHomeButton_Click(object sender, EventArgs e)
+        {
+            WebBrowserUsing.GoHome();
+        }
+
+        private void WebBrowserBackButton_Click(object sender, EventArgs e)
+        {
+            if(WebBrowserUsing.CanGoBack)
+            {
+                WebBrowserUsing.GoBack();
+            }
+        }
+
+        private void WebBrowserForwardButton_Click(object sender, EventArgs e)
+        {
+            if (WebBrowserUsing.CanGoForward)
+            {
+                WebBrowserUsing.GoForward();
+            }
+        }
+
+        private void WebBrowserRefreshButton_Click(object sender, EventArgs e)
+        {
+            WebBrowserUsing.Refresh();
         }
     }  
 }
