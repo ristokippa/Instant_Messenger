@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices; //for Mr. Marshal
+using System.Threading;
 
-namespace ServerSide // miks on vaja classes folderit_?
+namespace ServerSide
 {
     class Program
     {
@@ -13,15 +14,19 @@ namespace ServerSide // miks on vaja classes folderit_?
         {
 
             Classes.Server ServerSide = new Classes.Server(5, 4);
-            // Just for practise
+            Classes.TextEdit TextEdit = new Classes.TextEdit();
+            Thread blinkThread = new Thread(TextEdit.BlinkText);
 
-            ServerSide.PrintStuff("\tServer started.");
+            string blinking_text = "Waiting for connections with ServerSide.";
+            blinkThread.Start(blinking_text);
+            ServerSide.PrintStuff("Server started.");
             // IpRequest returns local PC-s IPaddress
             string ip = ServerSide.IpRequest();
             string port = "10000";
             ServerSide.IsConnected(ip, Convert.ToInt32(port));
+
             //Console.WriteLine(Marshal.SizeOf(uus));   //Cannot use it. Solution: http://stackoverflow.com/questions/19408424/why-cant-i-do-marshal-sizeof-for-this-c-sharp-struct
-            Console.WriteLine("[{0}] Main program finished.", DateTime.Now);
+            //ServerSide.PrintStuff("Waiting for (another) connection.");
             Console.Read();
 
         }

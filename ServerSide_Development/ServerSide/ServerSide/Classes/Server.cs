@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
+using System.Threading;
 
 
 namespace ServerSide.Classes
@@ -23,7 +24,7 @@ namespace ServerSide.Classes
 
         public void PrintStuff(string text)
         {
-            Console.WriteLine("[{0}] " + text, DateTime.Now);
+            Console.WriteLine("[{0}]\t" + text, DateTime.Now);
 
         }
 
@@ -54,8 +55,9 @@ namespace ServerSide.Classes
                 Console.WriteLine("///////////////////////////////////////////////////////////////////////////////");
                 Console.WriteLine("\t\t\tIP: " + server_ip + ", Port: " + client_socket);
                 Console.WriteLine("///////////////////////////////////////////////////////////////////////////////");
- 
-                Console.WriteLine("[{0}]\tWaiting for connections with current device", DateTime.Now);
+                                
+                
+                //BlinkText("\t\t\tWaiting for connections with ServerSide");
 
                 // Uses the GetStream public method to return the NetworkStream.
                 System.Net.IPAddress ipaddress = System.Net.IPAddress.Parse(server_ip);
@@ -64,12 +66,15 @@ namespace ServerSide.Classes
 
                 /*default keyword is just setting the object clientSocket to null or default value of a reference type, 
                  * since TcpClient is a class, (a reference type).*/
-                TcpClient clientSocket = default(TcpClient);
-                clientSocket = serverSocket.AcceptTcpClient();
-                Console.WriteLine("Connection with client accepted.");
+                //TcpClient clientSocket = default(TcpClient);
+                //clientSocket = serverSocket.AcceptTcpClient();
+                Thread.Sleep(3000);
+                Classes.TextEdit TextEdit = new Classes.TextEdit();
+                TextEdit.BlinkStop();
+                PrintStuff("Connection with client accepted.");
+                //Console.WriteLine("\nConnection with client accepted.");
                 return true;
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine("///////////////////////////////////////////////////////////////////////////////\n");
@@ -89,12 +94,12 @@ namespace ServerSide.Classes
 
         public void GlobalVariables()
         {
-            string IPAddr = "IpReq result";
+            //string IPAddr = "IpReq result";
         }
 
-        public void BlinkText(string text)
-        {
-
-        }
+        //internal bool IsConnected()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
