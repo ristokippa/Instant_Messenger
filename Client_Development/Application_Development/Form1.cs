@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Application_Development
 {
@@ -15,6 +16,9 @@ namespace Application_Development
         EmailSendClass emailSend = new EmailSendClass();
         LogInClass logIn = new LogInClass();
         Classes.ChatClass chatInstance = new Classes.ChatClass();
+
+        Thread TimerThread;
+
         private string ServerIPAddress = ""; // Value comes from Chat panel interface
         private int ServerSocket = 0;        // Value comes from Chat panel interface
             
@@ -28,6 +32,15 @@ namespace Application_Development
             IPAddressTextBox.Text = "IP Address";
             SocketTextBox.Text = "Socket";
             MachineIPAddressComboBox.Text = "Machine IP addresses";
+
+            // Create a new clock
+            Classes.TimerClass timerInstance = new Classes.TimerClass();
+            Classes.DisplayClock displayClockInstance = new Classes.DisplayClock(RealTimeTextBox);
+
+            // Subscribe to the clock
+            displayClockInstance.Subscribe(timerInstance);
+            TimerThread = new Thread(timerInstance.RunClock);
+            TimerThread.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -218,6 +231,11 @@ namespace Application_Development
         private void WebBrowserRefreshButton_Click(object sender, EventArgs e)
         {
             WebBrowserUsing.Refresh();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TimerThread.Abort();
         }
     }  
 }

@@ -40,6 +40,7 @@
             this.UserNametextBox = new System.Windows.Forms.TextBox();
             this.EmailSendingPanel = new System.Windows.Forms.Panel();
             this.ChatPanel = new System.Windows.Forms.Panel();
+            this.RealTimeTextBox = new System.Windows.Forms.TextBox();
             this.GetIPButton = new System.Windows.Forms.Button();
             this.MachineIPAddressComboBox = new System.Windows.Forms.ComboBox();
             this.ConnectToServerButton = new System.Windows.Forms.Button();
@@ -54,22 +55,22 @@
             this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realtimeGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseAppPanel = new System.Windows.Forms.Panel();
             this.RealTimeGraphPanel = new System.Windows.Forms.Panel();
             this.WebBrowserPanel = new System.Windows.Forms.Panel();
-            this.webBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BrowserSearchTextBox = new System.Windows.Forms.TextBox();
-            this.WebBrowserHomeButton = new System.Windows.Forms.Button();
-            this.WebBrowserBackButton = new System.Windows.Forms.Button();
-            this.WebBrowserForwardButton = new System.Windows.Forms.Button();
-            this.WebBrowserRefreshButton = new System.Windows.Forms.Button();
-            this.WebBrowserStopButton = new System.Windows.Forms.Button();
-            this.WebBrowserGoButton = new System.Windows.Forms.Button();
             this.WebBrowserUsing = new System.Windows.Forms.WebBrowser();
+            this.WebBrowserGoButton = new System.Windows.Forms.Button();
+            this.WebBrowserStopButton = new System.Windows.Forms.Button();
+            this.WebBrowserRefreshButton = new System.Windows.Forms.Button();
+            this.WebBrowserForwardButton = new System.Windows.Forms.Button();
+            this.WebBrowserBackButton = new System.Windows.Forms.Button();
+            this.WebBrowserHomeButton = new System.Windows.Forms.Button();
+            this.BrowserSearchTextBox = new System.Windows.Forms.TextBox();
             this.FirstPagePanel.SuspendLayout();
             this.EmailSendingPanel.SuspendLayout();
             this.ChatPanel.SuspendLayout();
@@ -114,7 +115,7 @@
             this.FirstPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstPagePanel.Location = new System.Drawing.Point(0, 24);
             this.FirstPagePanel.Name = "FirstPagePanel";
-            this.FirstPagePanel.Size = new System.Drawing.Size(975, 624);
+            this.FirstPagePanel.Size = new System.Drawing.Size(804, 459);
             this.FirstPagePanel.TabIndex = 3;
             // 
             // PasscodeLabel
@@ -178,12 +179,13 @@
             this.EmailSendingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmailSendingPanel.Location = new System.Drawing.Point(0, 0);
             this.EmailSendingPanel.Name = "EmailSendingPanel";
-            this.EmailSendingPanel.Size = new System.Drawing.Size(975, 648);
+            this.EmailSendingPanel.Size = new System.Drawing.Size(804, 483);
             this.EmailSendingPanel.TabIndex = 3;
             this.EmailSendingPanel.Visible = false;
             // 
             // ChatPanel
             // 
+            this.ChatPanel.Controls.Add(this.RealTimeTextBox);
             this.ChatPanel.Controls.Add(this.GetIPButton);
             this.ChatPanel.Controls.Add(this.MachineIPAddressComboBox);
             this.ChatPanel.Controls.Add(this.ConnectToServerButton);
@@ -197,9 +199,16 @@
             this.ChatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChatPanel.Location = new System.Drawing.Point(0, 24);
             this.ChatPanel.Name = "ChatPanel";
-            this.ChatPanel.Size = new System.Drawing.Size(975, 624);
+            this.ChatPanel.Size = new System.Drawing.Size(804, 459);
             this.ChatPanel.TabIndex = 6;
             this.ChatPanel.Visible = false;
+            // 
+            // RealTimeTextBox
+            // 
+            this.RealTimeTextBox.Location = new System.Drawing.Point(437, 49);
+            this.RealTimeTextBox.Name = "RealTimeTextBox";
+            this.RealTimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.RealTimeTextBox.TabIndex = 11;
             // 
             // GetIPButton
             // 
@@ -295,7 +304,7 @@
             this.controlsToolStripMenuItem});
             this.ControlsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.ControlsMenuStrip.Name = "ControlsMenuStrip";
-            this.ControlsMenuStrip.Size = new System.Drawing.Size(975, 24);
+            this.ControlsMenuStrip.Size = new System.Drawing.Size(804, 24);
             this.ControlsMenuStrip.TabIndex = 6;
             this.ControlsMenuStrip.Text = "Controls";
             // 
@@ -327,6 +336,13 @@
             this.chatToolStripMenuItem.Text = "Chat";
             this.chatToolStripMenuItem.Click += new System.EventHandler(this.chatToolStripMenuItem_Click);
             // 
+            // webBrowserToolStripMenuItem
+            // 
+            this.webBrowserToolStripMenuItem.Name = "webBrowserToolStripMenuItem";
+            this.webBrowserToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.webBrowserToolStripMenuItem.Text = "Web browser";
+            this.webBrowserToolStripMenuItem.Click += new System.EventHandler(this.webBrowserToolStripMenuItem_Click);
+            // 
             // databaseAppToolStripMenuItem
             // 
             this.databaseAppToolStripMenuItem.Name = "databaseAppToolStripMenuItem";
@@ -348,12 +364,19 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // DatabaseAppPanel
             // 
             this.DatabaseAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatabaseAppPanel.Location = new System.Drawing.Point(0, 24);
             this.DatabaseAppPanel.Name = "DatabaseAppPanel";
-            this.DatabaseAppPanel.Size = new System.Drawing.Size(975, 624);
+            this.DatabaseAppPanel.Size = new System.Drawing.Size(804, 459);
             this.DatabaseAppPanel.TabIndex = 6;
             this.DatabaseAppPanel.Visible = false;
             // 
@@ -362,7 +385,7 @@
             this.RealTimeGraphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RealTimeGraphPanel.Location = new System.Drawing.Point(0, 24);
             this.RealTimeGraphPanel.Name = "RealTimeGraphPanel";
-            this.RealTimeGraphPanel.Size = new System.Drawing.Size(975, 624);
+            this.RealTimeGraphPanel.Size = new System.Drawing.Size(804, 459);
             this.RealTimeGraphPanel.TabIndex = 0;
             this.RealTimeGraphPanel.Visible = false;
             // 
@@ -379,79 +402,17 @@
             this.WebBrowserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WebBrowserPanel.Location = new System.Drawing.Point(0, 24);
             this.WebBrowserPanel.Name = "WebBrowserPanel";
-            this.WebBrowserPanel.Size = new System.Drawing.Size(975, 624);
+            this.WebBrowserPanel.Size = new System.Drawing.Size(804, 459);
             this.WebBrowserPanel.TabIndex = 11;
             this.WebBrowserPanel.Visible = false;
             // 
-            // webBrowserToolStripMenuItem
+            // WebBrowserUsing
             // 
-            this.webBrowserToolStripMenuItem.Name = "webBrowserToolStripMenuItem";
-            this.webBrowserToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.webBrowserToolStripMenuItem.Text = "Web browser";
-            this.webBrowserToolStripMenuItem.Click += new System.EventHandler(this.webBrowserToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // BrowserSearchTextBox
-            // 
-            this.BrowserSearchTextBox.Location = new System.Drawing.Point(13, 29);
-            this.BrowserSearchTextBox.Name = "BrowserSearchTextBox";
-            this.BrowserSearchTextBox.Size = new System.Drawing.Size(507, 20);
-            this.BrowserSearchTextBox.TabIndex = 0;
-            // 
-            // WebBrowserHomeButton
-            // 
-            this.WebBrowserHomeButton.Location = new System.Drawing.Point(12, 3);
-            this.WebBrowserHomeButton.Name = "WebBrowserHomeButton";
-            this.WebBrowserHomeButton.Size = new System.Drawing.Size(75, 23);
-            this.WebBrowserHomeButton.TabIndex = 1;
-            this.WebBrowserHomeButton.Text = "HOME";
-            this.WebBrowserHomeButton.UseVisualStyleBackColor = true;
-            this.WebBrowserHomeButton.Click += new System.EventHandler(this.WebBrowserHomeButton_Click);
-            // 
-            // WebBrowserBackButton
-            // 
-            this.WebBrowserBackButton.Location = new System.Drawing.Point(93, 3);
-            this.WebBrowserBackButton.Name = "WebBrowserBackButton";
-            this.WebBrowserBackButton.Size = new System.Drawing.Size(75, 23);
-            this.WebBrowserBackButton.TabIndex = 2;
-            this.WebBrowserBackButton.Text = "Back";
-            this.WebBrowserBackButton.UseVisualStyleBackColor = true;
-            this.WebBrowserBackButton.Click += new System.EventHandler(this.WebBrowserBackButton_Click);
-            // 
-            // WebBrowserForwardButton
-            // 
-            this.WebBrowserForwardButton.Location = new System.Drawing.Point(174, 3);
-            this.WebBrowserForwardButton.Name = "WebBrowserForwardButton";
-            this.WebBrowserForwardButton.Size = new System.Drawing.Size(75, 23);
-            this.WebBrowserForwardButton.TabIndex = 3;
-            this.WebBrowserForwardButton.Text = "Forward";
-            this.WebBrowserForwardButton.UseVisualStyleBackColor = true;
-            this.WebBrowserForwardButton.Click += new System.EventHandler(this.WebBrowserForwardButton_Click);
-            // 
-            // WebBrowserRefreshButton
-            // 
-            this.WebBrowserRefreshButton.Location = new System.Drawing.Point(255, 3);
-            this.WebBrowserRefreshButton.Name = "WebBrowserRefreshButton";
-            this.WebBrowserRefreshButton.Size = new System.Drawing.Size(75, 23);
-            this.WebBrowserRefreshButton.TabIndex = 4;
-            this.WebBrowserRefreshButton.Text = "Refresh";
-            this.WebBrowserRefreshButton.UseVisualStyleBackColor = true;
-            this.WebBrowserRefreshButton.Click += new System.EventHandler(this.WebBrowserRefreshButton_Click);
-            // 
-            // WebBrowserStopButton
-            // 
-            this.WebBrowserStopButton.Location = new System.Drawing.Point(336, 3);
-            this.WebBrowserStopButton.Name = "WebBrowserStopButton";
-            this.WebBrowserStopButton.Size = new System.Drawing.Size(75, 23);
-            this.WebBrowserStopButton.TabIndex = 5;
-            this.WebBrowserStopButton.Text = "Stop";
-            this.WebBrowserStopButton.UseVisualStyleBackColor = true;
+            this.WebBrowserUsing.Location = new System.Drawing.Point(12, 55);
+            this.WebBrowserUsing.MinimumSize = new System.Drawing.Size(20, 20);
+            this.WebBrowserUsing.Name = "WebBrowserUsing";
+            this.WebBrowserUsing.Size = new System.Drawing.Size(900, 533);
+            this.WebBrowserUsing.TabIndex = 7;
             // 
             // WebBrowserGoButton
             // 
@@ -463,21 +424,69 @@
             this.WebBrowserGoButton.UseVisualStyleBackColor = true;
             this.WebBrowserGoButton.Click += new System.EventHandler(this.WebBrowserGoButton_Click);
             // 
-            // WebBrowserUsing
+            // WebBrowserStopButton
             // 
-            this.WebBrowserUsing.Location = new System.Drawing.Point(12, 55);
-            this.WebBrowserUsing.MinimumSize = new System.Drawing.Size(20, 20);
-            this.WebBrowserUsing.Name = "WebBrowserUsing";
-            this.WebBrowserUsing.Size = new System.Drawing.Size(900, 533);
-            this.WebBrowserUsing.TabIndex = 7;
+            this.WebBrowserStopButton.Location = new System.Drawing.Point(336, 3);
+            this.WebBrowserStopButton.Name = "WebBrowserStopButton";
+            this.WebBrowserStopButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserStopButton.TabIndex = 5;
+            this.WebBrowserStopButton.Text = "Stop";
+            this.WebBrowserStopButton.UseVisualStyleBackColor = true;
+            // 
+            // WebBrowserRefreshButton
+            // 
+            this.WebBrowserRefreshButton.Location = new System.Drawing.Point(255, 3);
+            this.WebBrowserRefreshButton.Name = "WebBrowserRefreshButton";
+            this.WebBrowserRefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserRefreshButton.TabIndex = 4;
+            this.WebBrowserRefreshButton.Text = "Refresh";
+            this.WebBrowserRefreshButton.UseVisualStyleBackColor = true;
+            this.WebBrowserRefreshButton.Click += new System.EventHandler(this.WebBrowserRefreshButton_Click);
+            // 
+            // WebBrowserForwardButton
+            // 
+            this.WebBrowserForwardButton.Location = new System.Drawing.Point(174, 3);
+            this.WebBrowserForwardButton.Name = "WebBrowserForwardButton";
+            this.WebBrowserForwardButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserForwardButton.TabIndex = 3;
+            this.WebBrowserForwardButton.Text = "Forward";
+            this.WebBrowserForwardButton.UseVisualStyleBackColor = true;
+            this.WebBrowserForwardButton.Click += new System.EventHandler(this.WebBrowserForwardButton_Click);
+            // 
+            // WebBrowserBackButton
+            // 
+            this.WebBrowserBackButton.Location = new System.Drawing.Point(93, 3);
+            this.WebBrowserBackButton.Name = "WebBrowserBackButton";
+            this.WebBrowserBackButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserBackButton.TabIndex = 2;
+            this.WebBrowserBackButton.Text = "Back";
+            this.WebBrowserBackButton.UseVisualStyleBackColor = true;
+            this.WebBrowserBackButton.Click += new System.EventHandler(this.WebBrowserBackButton_Click);
+            // 
+            // WebBrowserHomeButton
+            // 
+            this.WebBrowserHomeButton.Location = new System.Drawing.Point(12, 3);
+            this.WebBrowserHomeButton.Name = "WebBrowserHomeButton";
+            this.WebBrowserHomeButton.Size = new System.Drawing.Size(75, 23);
+            this.WebBrowserHomeButton.TabIndex = 1;
+            this.WebBrowserHomeButton.Text = "HOME";
+            this.WebBrowserHomeButton.UseVisualStyleBackColor = true;
+            this.WebBrowserHomeButton.Click += new System.EventHandler(this.WebBrowserHomeButton_Click);
+            // 
+            // BrowserSearchTextBox
+            // 
+            this.BrowserSearchTextBox.Location = new System.Drawing.Point(13, 29);
+            this.BrowserSearchTextBox.Name = "BrowserSearchTextBox";
+            this.BrowserSearchTextBox.Size = new System.Drawing.Size(507, 20);
+            this.BrowserSearchTextBox.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 648);
-            this.Controls.Add(this.WebBrowserPanel);
+            this.ClientSize = new System.Drawing.Size(804, 483);
             this.Controls.Add(this.ChatPanel);
+            this.Controls.Add(this.WebBrowserPanel);
             this.Controls.Add(this.RealTimeGraphPanel);
             this.Controls.Add(this.DatabaseAppPanel);
             this.Controls.Add(this.FirstPagePanel);
@@ -486,6 +495,7 @@
             this.MainMenuStrip = this.ControlsMenuStrip;
             this.Name = "Form1";
             this.Text = "Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.FirstPagePanel.ResumeLayout(false);
             this.FirstPagePanel.PerformLayout();
@@ -546,6 +556,7 @@
         private System.Windows.Forms.Button WebBrowserHomeButton;
         private System.Windows.Forms.TextBox BrowserSearchTextBox;
         private System.Windows.Forms.WebBrowser WebBrowserUsing;
+        private System.Windows.Forms.TextBox RealTimeTextBox;
     }
 }
 
