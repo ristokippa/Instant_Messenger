@@ -15,7 +15,7 @@ namespace ServerSide // miks on vaja classes folderit_?
             Classes.Server ServerSide = new Classes.Server(5, 4);
             // Just for practise
 
-            ServerSide.PrintStuff("Server started.");
+            ServerSide.PrintStuff("\tServer started.");
             // IpRequest returns local PC-s IPaddress
             string ip = ServerSide.IpRequest();
             string port = "10000";

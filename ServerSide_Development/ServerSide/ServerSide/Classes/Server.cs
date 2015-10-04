@@ -23,7 +23,7 @@ namespace ServerSide.Classes
 
         public void PrintStuff(string text)
         {
-            Console.WriteLine(text);
+            Console.WriteLine("[{0}] " + text, DateTime.Now);
 
         }
 
@@ -34,7 +34,7 @@ namespace ServerSide.Classes
             // First get host name from local machine
             strHostName = Dns.GetHostName();
             // Then using host name, get IP address from a list
-            Console.WriteLine("[{0}] Local PC's host name: " + strHostName, DateTime.Now);
+            Console.WriteLine("[{0}]\tLocal PC's host name: " + strHostName, DateTime.Now);
 
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
@@ -51,7 +51,11 @@ namespace ServerSide.Classes
         {
             try
             {
-                Console.WriteLine("Waiting for connection with device (IP: " + server_ip + ", Port: " + client_socket + ")");
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////////////");
+                Console.WriteLine("\t\t\tIP: " + server_ip + ", Port: " + client_socket);
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////////////");
+ 
+                Console.WriteLine("[{0}]\tWaiting for connections with current device", DateTime.Now);
 
                 // Uses the GetStream public method to return the NetworkStream.
                 System.Net.IPAddress ipaddress = System.Net.IPAddress.Parse(server_ip);
@@ -86,6 +90,11 @@ namespace ServerSide.Classes
         public void GlobalVariables()
         {
             string IPAddr = "IpReq result";
+        }
+
+        public void BlinkText(string text)
+        {
+
         }
     }
 }
